@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>马来西亚高校教职求职状态</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #182033;
+      --muted: #657085;
+      --line: #dde3ec;
+      --accent: #1f6feb;
+      --submitted: #18794e;
+      --pending: #9a6700;
+      --blocked: #b42318;
+      --duplicate: #5b6577;
+      --skip: #687383;
+      --hard: #9f1239;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+
+    main {
+      width: min(1480px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      min-height: 88px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--accent);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 14px 16px 0;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .status-bars {
+      padding: 12px 16px 16px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 142px minmax(0, 1fr) 44px;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      background: #eef2f7;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: var(--width);
+      border-radius: 999px;
+      background: var(--color);
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 8px;
+      padding: 12px 16px 16px;
+    }
+
+    .focus-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 38px;
+      gap: 10px;
+      align-items: center;
+      min-height: 36px;
+      border-bottom: 1px solid var(--line);
+      color: #2d3748;
+      font-size: 13px;
+    }
+
+    .focus-item:last-child { border-bottom: 0; }
+    .focus-item strong { text-align: right; font-size: 16px; }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfe;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+      height: 36px;
+      border: 1px solid #cfd7e3;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .controls input {
+      min-width: 260px;
+      padding: 0 10px;
+    }
+
+    .controls select,
+    .controls button {
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .controls button.active {
+      border-color: var(--accent);
+      color: #0f4faf;
+      background: #eef5ff;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1280px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      line-height: 1.45;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #f5f7fb;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 76px; }
+    th:nth-child(2), td:nth-child(2) { width: 108px; }
+    th:nth-child(3), td:nth-child(3) { width: 260px; }
+    th:nth-child(4), td:nth-child(4) { width: 310px; }
+    th:nth-child(5), td:nth-child(5) { width: 160px; }
+    th:nth-child(6), td:nth-child(6) { width: 150px; }
+    th:nth-child(7), td:nth-child(7) { width: 160px; }
+    th:nth-child(8), td:nth-child(8) { width: 250px; }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 26px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .marker {
+      display: inline-grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      color: #fff;
+      background: currentColor;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .marker span {
+      color: #fff;
+    }
+
+    .tone-submitted { color: var(--submitted); }
+    .tone-pending { color: var(--pending); }
+    .tone-blocked { color: var(--blocked); }
+    .tone-draft { color: var(--accent); }
+    .tone-duplicate { color: var(--duplicate); }
+    .tone-hard { color: var(--hard); }
+    .tone-skip { color: var(--skip); }
+
+    .job-link {
+      color: #0f4faf;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .job-link:hover { text-decoration: underline; }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .empty {
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      main { width: min(100% - 24px, 1480px); padding-top: 18px; }
+      header { display: block; }
+      .updated { display: block; margin-top: 8px; }
+      .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: 1fr; }
+      .controls input { min-width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 24px; }
+      .summary { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 116px minmax(0, 1fr) 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>马来西亚高校教职求职状态</h1>
+        <p class="subtitle">用于公开追踪高校讲师岗位投递进展。页面只保留公开招聘信息和阶段状态，不展示住址、签证表单答案、简历文件名或求职信文件名。</p>
+      </div>
+      <span class="updated" id="updated">最后更新：-</span>
+    </header>
+
+    <section class="summary" aria-label="求职状态概览">
+      <article class="stat-card" style="--accent: var(--submitted)">
+        <strong id="submittedCount">0</strong>
+        <span>已投递岗位</span>
+      </article>
+      <article class="stat-card" style="--accent: var(--accent)">
+        <strong id="institutionCount">0</strong>
+        <span>已覆盖机构</span>
+      </article>
+      <article class="stat-card" style="--accent: var(--duplicate)">
+        <strong id="duplicateCount">0</strong>
+        <span>重复职位记录</span>
+      </article>
+      <article class="stat-card" style="--accent: var(--skip)">
+        <strong id="skippedCount">0</strong>
+        <span>已筛除岗位</span>
+      </article>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>投递漏斗</h2>
+        <div class="status-bars" id="statusBars"></div>
+      </div>
+      <div class="panel">
+        <h2>已投递方向</h2>
+        <div class="focus-list" id="fitList"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="controls">
+        <input id="searchInput" type="search" placeholder="搜索学校、岗位、城市或平台">
+        <select id="statusFilter" aria-label="筛选状态"></select>
+        <select id="fitFilter" aria-label="筛选方向"></select>
+        <button type="button" data-sort="date" class="active">按日期</button>
+        <button type="button" data-sort="status">按状态</button>
+        <button type="button" data-sort="institution">按学校</button>
+      </div>
+      <div class="table-wrap">
+        <table aria-label="求职投递状态表">
+          <thead>
+            <tr>
+              <th>状态</th>
+              <th>日期</th>
+              <th>学校 / 机构</th>
+              <th>岗位</th>
+              <th>方向</th>
+              <th>地点</th>
+              <th>平台</th>
+              <th>公开备注</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty" hidden>没有符合当前筛选条件的记录。</div>
+    </section>
+
+    <footer>
+      数据来源：本地求职申请记录 CSV，经公开字段过滤后生成。后续可继续加入“面试邀请、面试完成、等待结果、offer、拒信”等状态。
+    </footer>
+  </main>
+
+  <script>
+    const statusOrder = [
+      ["submitted", "已投递", "submitted"],
+      ["external-site-visited", "外部系统待跟进", "pending"],
+      ["blocked-needs-user", "需人工处理", "blocked"],
+      ["drafted-not-submitted", "已起草未投递", "draft"],
+      ["duplicate", "重复职位", "duplicate"],
+      ["skipped-hard-requirement", "未投：硬性条件不符", "hard"],
+      ["skipped-not-fit", "未投：方向不匹配", "skip"]
+    ];
+
+    const fitLabels = {
+      "interior-design": "室内设计",
+      "interior-architecture": "室内建筑 / 室内建筑设计",
+      "architecture": "建筑学 / 建筑设计",
+      "built-environment": "建成环境",
+      "art-design": "艺术与设计",
+      "design-technology": "设计科技 / 数字设计",
+      "adjacent": "相邻学科",
+      "not-fit": "不匹配"
+    };
+
+    const barColors = {
+      submitted: "#18794e",
+      pending: "#9a6700",
+      blocked: "#b42318",
+      draft: "#1f6feb",
+      duplicate: "#5b6577",
+      hard: "#9f1239",
+      skip: "#687383"
+    };
+
+    let allRows = [];
+    let sortMode = "date";
+
+    const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[ch]));
+
+    function statusPill(row) {
+      return `
+        <span class="status-pill tone-${row.status_tone}">
+          <span class="marker"><span>${escapeHtml(row.status_marker || "记")}</span></span>
+          ${escapeHtml(row.status_label)}
+        </span>
+      `;
+    }
+
+    function sortedRows(rows) {
+      const data = [...rows];
+      if (sortMode === "status") {
+        data.sort((a, b) => (a.status_order - b.status_order) || String(b.date).localeCompare(String(a.date)) || String(a.institution).localeCompare(String(b.institution), "zh-CN"));
+      } else if (sortMode === "institution") {
+        data.sort((a, b) => String(a.institution).localeCompare(String(b.institution), "zh-CN") || String(b.date).localeCompare(String(a.date)));
+      } else {
+        data.sort((a, b) => String(b.date).localeCompare(String(a.date)) || (a.status_order - b.status_order) || String(a.institution).localeCompare(String(b.institution), "zh-CN"));
+      }
+      return data;
+    }
+
+    function filteredRows() {
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+      const status = document.getElementById("statusFilter").value;
+      const fit = document.getElementById("fitFilter").value;
+      return allRows.filter(row => {
+        const haystack = [row.institution, row.job_title, row.location, row.platform, row.fit_label, row.status_label].join(" ").toLowerCase();
+        return (!query || haystack.includes(query)) &&
+          (!status || row.status === status) &&
+          (!fit || row.fit_category === fit);
+      });
+    }
+
+    function renderTable() {
+      const rows = sortedRows(filteredRows());
+      const body = document.getElementById("tableBody");
+      document.getElementById("emptyState").hidden = rows.length > 0;
+      body.innerHTML = rows.map(row => `
+        <tr>
+          <td>${statusPill(row)}</td>
+          <td>${escapeHtml(row.date)}</td>
+          <td>
+            <strong>${escapeHtml(row.institution)}</strong>
+            <div class="muted">Job ID：${escapeHtml(row.job_id || "-")}</div>
+          </td>
+          <td>
+            <a class="job-link" href="${escapeHtml(row.job_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(row.job_title)}</a>
+          </td>
+          <td>${escapeHtml(row.fit_label)}</td>
+          <td>${escapeHtml(row.location)}</td>
+          <td>${escapeHtml(row.platform)}</td>
+          <td>${escapeHtml(row.public_note)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderFilters(rows) {
+      const statusFilter = document.getElementById("statusFilter");
+      statusFilter.innerHTML = `<option value="">全部状态</option>` + statusOrder
+        .filter(([key]) => rows.some(row => row.status === key))
+        .map(([key, label]) => `<option value="${key}">${label}</option>`)
+        .join("");
+
+      const fitFilter = document.getElementById("fitFilter");
+      const fitKeys = [...new Set(rows.map(row => row.fit_category))].sort((a, b) => String(fitLabels[a] || a).localeCompare(String(fitLabels[b] || b), "zh-CN"));
+      fitFilter.innerHTML = `<option value="">全部方向</option>` + fitKeys
+        .map(key => `<option value="${escapeHtml(key)}">${escapeHtml(fitLabels[key] || key)}</option>`)
+        .join("");
+    }
+
+    function renderSummary(data) {
+      document.getElementById("updated").textContent = `最后更新：${data.generated_at}`;
+      document.getElementById("submittedCount").textContent = data.summary.submitted;
+      document.getElementById("institutionCount").textContent = data.summary.submitted_institutions;
+      document.getElementById("duplicateCount").textContent = data.summary.duplicates;
+      document.getElementById("skippedCount").textContent = data.summary.skipped;
+    }
+
+    function renderBars(data) {
+      const max = Math.max(...Object.values(data.status_counts), 1);
+      document.getElementById("statusBars").innerHTML = statusOrder
+        .filter(([key]) => data.status_counts[key])
+        .map(([key, label, tone]) => {
+          const count = data.status_counts[key];
+          const width = `${Math.max(6, Math.round(count / max * 100))}%`;
+          return `
+            <div class="bar-row">
+              <span>${escapeHtml(label)}</span>
+              <span class="bar-track"><span class="bar-fill" style="--width:${width};--color:${barColors[tone]}"></span></span>
+              <strong>${count}</strong>
+            </div>
+          `;
+        }).join("");
+    }
+
+    function renderFitList(data) {
+      const entries = Object.entries(data.fit_counts_submitted)
+        .sort((a, b) => b[1] - a[1] || String(fitLabels[a[0]] || a[0]).localeCompare(String(fitLabels[b[0]] || b[0]), "zh-CN"));
+      document.getElementById("fitList").innerHTML = entries.map(([key, count]) => `
+        <div class="focus-item">
+          <span>${escapeHtml(fitLabels[key] || key)}</span>
+          <strong>${count}</strong>
+        </div>
+      `).join("");
+    }
+
+    async function init() {
+      const response = await fetch("applications.json", { cache: "no-store" });
+      const data = await response.json();
+      allRows = data.applications || [];
+      renderSummary(data);
+      renderBars(data);
+      renderFitList(data);
+      renderFilters(allRows);
+      renderTable();
+    }
+
+    document.getElementById("searchInput").addEventListener("input", renderTable);
+    document.getElementById("statusFilter").addEventListener("change", renderTable);
+    document.getElementById("fitFilter").addEventListener("change", renderTable);
+    document.querySelectorAll("button[data-sort]").forEach(button => {
+      button.addEventListener("click", () => {
+        sortMode = button.dataset.sort;
+        document.querySelectorAll("button[data-sort]").forEach(item => item.classList.toggle("active", item === button));
+        renderTable();
+      });
+    });
+
+    init().catch(error => {
+      document.getElementById("tableBody").innerHTML = "";
+      const empty = document.getElementById("emptyState");
+      empty.hidden = false;
+      empty.textContent = `数据加载失败：${error.message}`;
+    });
+  </script>
+</body>
+</html>
