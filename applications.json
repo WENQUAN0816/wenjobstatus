@@ -1,17 +1,16 @@
 {
-  "generated_at": "2026-06-09",
+  "generated_at": "2026-06-10",
   "title": "马来西亚高校教职求职状态",
   "summary": {
-    "total_records": 25,
+    "total_records": 20,
     "submitted": 17,
     "submitted_institutions": 11,
     "duplicates": 2,
-    "skipped": 6
+    "skipped": 1
   },
   "status_counts": {
     "duplicate": 2,
     "skipped-hard-requirement": 1,
-    "skipped-not-fit": 5,
     "submitted": 17
   },
   "fit_counts_submitted": {
@@ -39,7 +38,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -58,7 +58,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -77,7 +78,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -96,7 +98,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -115,7 +118,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "中",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -134,7 +138,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -153,7 +158,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -172,7 +178,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -191,7 +198,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -210,7 +218,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -229,7 +238,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -248,7 +258,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -267,7 +278,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -286,7 +298,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -305,7 +318,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-06",
@@ -324,7 +338,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-05",
@@ -343,7 +358,8 @@
       "status_tone": "submitted",
       "lam_risk_label": "中",
       "sponsorship_risk_label": "高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。"
+      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-09",
@@ -362,7 +378,8 @@
       "status_tone": "duplicate",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "同一机构或同一方向岗位重复发布，已记录但未重复投递。"
+      "public_note": "同一机构或同一方向岗位重复发布，已记录但未重复投递。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-09",
@@ -381,7 +398,8 @@
       "status_tone": "duplicate",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "中",
-      "public_note": "同一机构或同一方向岗位重复发布，已记录但未重复投递。"
+      "public_note": "同一机构或同一方向岗位重复发布，已记录但未重复投递。",
+      "compensation_label": "招聘信息未公开/待核实"
     },
     {
       "date": "2026-06-09",
@@ -400,102 +418,8 @@
       "status_tone": "hard",
       "lam_risk_label": "高",
       "sponsorship_risk_label": "中",
-      "public_note": "岗位存在硬性专业注册、资格或学科要求风险，未投递。"
-    },
-    {
-      "date": "2026-06-09",
-      "platform": "JobStreet",
-      "job_id": "92403456",
-      "job_title": "Lecturer/Senior Lecturer/AP (Mass Comm/Business/eCommerce/Business Analytics)",
-      "institution": "MILA UNIVERSITY",
-      "location": "Nilai, Negeri Sembilan",
-      "job_url": "https://my.jobstreet.com/job/92403456",
-      "fit_category": "adjacent",
-      "fit_label": "相邻学科",
-      "status": "skipped-not-fit",
-      "status_label": "未投：方向不匹配",
-      "status_marker": "偏",
-      "status_order": 7,
-      "status_tone": "skip",
-      "lam_risk_label": "低",
-      "sponsorship_risk_label": "中",
-      "public_note": "岗位属于高校岗位，但学科方向偏离室内设计、建筑设计、建成环境或设计科技主线，未投递。"
-    },
-    {
-      "date": "2026-06-09",
-      "platform": "JobStreet",
-      "job_id": "92304118",
-      "job_title": "Lecturer",
-      "institution": "SEGi College Subang Jaya",
-      "location": "Subang Jaya, Selangor",
-      "job_url": "https://my.jobstreet.com/job/92304118",
-      "fit_category": "adjacent",
-      "fit_label": "相邻学科",
-      "status": "skipped-not-fit",
-      "status_label": "未投：方向不匹配",
-      "status_marker": "偏",
-      "status_order": 7,
-      "status_tone": "skip",
-      "lam_risk_label": "低",
-      "sponsorship_risk_label": "中",
-      "public_note": "岗位属于高校岗位，但学科方向偏离室内设计、建筑设计、建成环境或设计科技主线，未投递。"
-    },
-    {
-      "date": "2026-06-09",
-      "platform": "JobStreet",
-      "job_id": "92038420",
-      "job_title": "Lecturer - Foundation in Arts",
-      "institution": "Taylor's Education Group",
-      "location": "Subang Jaya, Selangor",
-      "job_url": "https://my.jobstreet.com/job/92038420",
-      "fit_category": "adjacent",
-      "fit_label": "相邻学科",
-      "status": "skipped-not-fit",
-      "status_label": "未投：方向不匹配",
-      "status_marker": "偏",
-      "status_order": 7,
-      "status_tone": "skip",
-      "lam_risk_label": "低",
-      "sponsorship_risk_label": "中",
-      "public_note": "岗位属于高校岗位，但学科方向偏离室内设计、建筑设计、建成环境或设计科技主线，未投递。"
-    },
-    {
-      "date": "2026-06-09",
-      "platform": "JobStreet",
-      "job_id": "91761115",
-      "job_title": "Lecturer",
-      "institution": "University of Wollongong Malaysia",
-      "location": "Shah Alam/Subang, Selangor",
-      "job_url": "https://my.jobstreet.com/job/91761115",
-      "fit_category": "adjacent",
-      "fit_label": "相邻学科",
-      "status": "skipped-not-fit",
-      "status_label": "未投：方向不匹配",
-      "status_marker": "偏",
-      "status_order": 7,
-      "status_tone": "skip",
-      "lam_risk_label": "低",
-      "sponsorship_risk_label": "中",
-      "public_note": "岗位属于高校岗位，但学科方向偏离室内设计、建筑设计、建成环境或设计科技主线，未投递。"
-    },
-    {
-      "date": "2026-06-09",
-      "platform": "JobStreet",
-      "job_id": "92559451",
-      "job_title": "Assistant/Associate/Full Professor in School of Communication",
-      "institution": "XIAMEN UNIVERSITY MALAYSIA",
-      "location": "Kuala Lumpur City Centre, Kuala Lumpur",
-      "job_url": "https://my.jobstreet.com/job/92559451",
-      "fit_category": "adjacent",
-      "fit_label": "相邻学科",
-      "status": "skipped-not-fit",
-      "status_label": "未投：方向不匹配",
-      "status_marker": "偏",
-      "status_order": 7,
-      "status_tone": "skip",
-      "lam_risk_label": "低",
-      "sponsorship_risk_label": "中",
-      "public_note": "岗位属于高校岗位，但学科方向偏离室内设计、建筑设计、建成环境或设计科技主线，未投递。"
+      "public_note": "岗位存在硬性专业注册、资格或学科要求风险，未投递。",
+      "compensation_label": "招聘信息未公开/待核实"
     }
   ]
 }

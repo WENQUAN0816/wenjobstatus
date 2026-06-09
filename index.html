@@ -17,7 +17,6 @@
       --pending: #9a6700;
       --blocked: #b42318;
       --duplicate: #5b6577;
-      --skip: #687383;
       --hard: #9f1239;
     }
 
@@ -208,7 +207,7 @@
 
     table {
       width: 100%;
-      min-width: 1280px;
+      min-width: 1440px;
       border-collapse: collapse;
       table-layout: fixed;
       font-size: 13px;
@@ -239,7 +238,8 @@
     th:nth-child(5), td:nth-child(5) { width: 160px; }
     th:nth-child(6), td:nth-child(6) { width: 150px; }
     th:nth-child(7), td:nth-child(7) { width: 160px; }
-    th:nth-child(8), td:nth-child(8) { width: 250px; }
+    th:nth-child(8), td:nth-child(8) { width: 180px; }
+    th:nth-child(9), td:nth-child(9) { width: 250px; }
 
     .status-pill {
       display: inline-flex;
@@ -341,7 +341,7 @@
         <strong id="duplicateCount">0</strong>
         <span>重复职位记录</span>
       </article>
-      <article class="stat-card" style="--accent: var(--skip)">
+      <article class="stat-card" style="--accent: var(--hard)">
         <strong id="skippedCount">0</strong>
         <span>已筛除岗位</span>
       </article>
@@ -378,6 +378,7 @@
               <th>方向</th>
               <th>地点</th>
               <th>平台</th>
+              <th>待遇 / 薪资</th>
               <th>公开备注</th>
             </tr>
           </thead>
@@ -399,8 +400,7 @@
       ["blocked-needs-user", "需人工处理", "blocked"],
       ["drafted-not-submitted", "已起草未投递", "draft"],
       ["duplicate", "重复职位", "duplicate"],
-      ["skipped-hard-requirement", "未投：硬性条件不符", "hard"],
-      ["skipped-not-fit", "未投：方向不匹配", "skip"]
+      ["skipped-hard-requirement", "未投：硬性条件不符", "hard"]
     ];
 
     const fitLabels = {
@@ -410,8 +410,7 @@
       "built-environment": "建成环境",
       "art-design": "艺术与设计",
       "design-technology": "设计科技 / 数字设计",
-      "adjacent": "相邻学科",
-      "not-fit": "不匹配"
+      "adjacent": "相邻学科"
     };
 
     const barColors = {
@@ -420,8 +419,7 @@
       blocked: "#b42318",
       draft: "#1f6feb",
       duplicate: "#5b6577",
-      hard: "#9f1239",
-      skip: "#687383"
+      hard: "#9f1239"
     };
 
     let allRows = [];
@@ -461,7 +459,7 @@
       const status = document.getElementById("statusFilter").value;
       const fit = document.getElementById("fitFilter").value;
       return allRows.filter(row => {
-        const haystack = [row.institution, row.job_title, row.location, row.platform, row.fit_label, row.status_label].join(" ").toLowerCase();
+        const haystack = [row.institution, row.job_title, row.location, row.platform, row.fit_label, row.status_label, row.compensation_label].join(" ").toLowerCase();
         return (!query || haystack.includes(query)) &&
           (!status || row.status === status) &&
           (!fit || row.fit_category === fit);
@@ -486,6 +484,7 @@
           <td>${escapeHtml(row.fit_label)}</td>
           <td>${escapeHtml(row.location)}</td>
           <td>${escapeHtml(row.platform)}</td>
+          <td>${escapeHtml(row.compensation_label || "招聘信息未公开/待核实")}</td>
           <td>${escapeHtml(row.public_note)}</td>
         </tr>
       `).join("");
