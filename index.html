@@ -289,6 +289,13 @@
       color: var(--muted);
     }
 
+    .source-name {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
     .empty {
       padding: 24px;
       color: var(--muted);
@@ -433,6 +440,13 @@
       "'": "&#39;"
     }[ch]));
 
+    const displayInstitution = row => row.institution_zh || row.institution || "";
+    const displayJobTitle = row => row.job_title_zh || row.job_title || "";
+    const originalLine = (label, original, display) => {
+      if (!original || original === display) return "";
+      return `<div class="source-name">${label}：${escapeHtml(original)}</div>`;
+    };
+
     function statusPill(row) {
       return `
         <span class="status-pill tone-${row.status_tone}">
@@ -445,11 +459,11 @@
     function sortedRows(rows) {
       const data = [...rows];
       if (sortMode === "status") {
-        data.sort((a, b) => (a.status_order - b.status_order) || String(b.date).localeCompare(String(a.date)) || String(a.institution).localeCompare(String(b.institution), "zh-CN"));
+        data.sort((a, b) => (a.status_order - b.status_order) || String(b.date).localeCompare(String(a.date)) || displayInstitution(a).localeCompare(displayInstitution(b), "zh-CN"));
       } else if (sortMode === "institution") {
-        data.sort((a, b) => String(a.institution).localeCompare(String(b.institution), "zh-CN") || String(b.date).localeCompare(String(a.date)));
+        data.sort((a, b) => displayInstitution(a).localeCompare(displayInstitution(b), "zh-CN") || String(b.date).localeCompare(String(a.date)));
       } else {
-        data.sort((a, b) => String(b.date).localeCompare(String(a.date)) || (a.status_order - b.status_order) || String(a.institution).localeCompare(String(b.institution), "zh-CN"));
+        data.sort((a, b) => String(b.date).localeCompare(String(a.date)) || (a.status_order - b.status_order) || displayInstitution(a).localeCompare(displayInstitution(b), "zh-CN"));
       }
       return data;
     }
@@ -459,7 +473,7 @@
       const status = document.getElementById("statusFilter").value;
       const fit = document.getElementById("fitFilter").value;
       return allRows.filter(row => {
-        const haystack = [row.institution, row.job_title, row.location, row.platform, row.fit_label, row.status_label, row.compensation_label].join(" ").toLowerCase();
+        const haystack = [row.institution_zh, row.institution, row.job_title_zh, row.job_title, row.location, row.platform, row.fit_label, row.status_label, row.compensation_label].join(" ").toLowerCase();
         return (!query || haystack.includes(query)) &&
           (!status || row.status === status) &&
           (!fit || row.fit_category === fit);
@@ -470,24 +484,30 @@
       const rows = sortedRows(filteredRows());
       const body = document.getElementById("tableBody");
       document.getElementById("emptyState").hidden = rows.length > 0;
-      body.innerHTML = rows.map(row => `
-        <tr>
-          <td>${statusPill(row)}</td>
-          <td>${escapeHtml(row.date)}</td>
-          <td>
-            <strong>${escapeHtml(row.institution)}</strong>
-            <div class="muted">Job ID：${escapeHtml(row.job_id || "-")}</div>
-          </td>
-          <td>
-            <a class="job-link" href="${escapeHtml(row.job_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(row.job_title)}</a>
-          </td>
-          <td>${escapeHtml(row.fit_label)}</td>
-          <td>${escapeHtml(row.location)}</td>
-          <td>${escapeHtml(row.platform)}</td>
-          <td>${escapeHtml(row.compensation_label || "招聘信息未公开/待核实")}</td>
-          <td>${escapeHtml(row.public_note)}</td>
-        </tr>
-      `).join("");
+      body.innerHTML = rows.map(row => {
+        const institution = displayInstitution(row);
+        const jobTitle = displayJobTitle(row);
+        return `
+          <tr>
+            <td>${statusPill(row)}</td>
+            <td>${escapeHtml(row.date)}</td>
+            <td>
+              <strong>${escapeHtml(institution)}</strong>
+              ${originalLine("英文原名", row.institution, institution)}
+              <div class="muted">Job ID：${escapeHtml(row.job_id || "-")}</div>
+            </td>
+            <td>
+              <a class="job-link" href="${escapeHtml(row.job_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(jobTitle)}</a>
+              ${originalLine("岗位原文", row.job_title, jobTitle)}
+            </td>
+            <td>${escapeHtml(row.fit_label)}</td>
+            <td>${escapeHtml(row.location)}</td>
+            <td>${escapeHtml(row.platform)}</td>
+            <td>${escapeHtml(row.compensation_label || "招聘信息未公开/待核实")}</td>
+            <td>${escapeHtml(row.public_note)}</td>
+          </tr>
+        `;
+      }).join("");
     }
 
     function renderFilters(rows) {
