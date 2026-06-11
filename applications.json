@@ -1,19 +1,21 @@
 {
-  "generated_at": "2026-06-10",
+  "generated_at": "2026-06-11",
   "title": "马来西亚高校建筑学与室内设计教职求职状态",
   "summary": {
-    "total_records": 3,
-    "submitted": 3,
-    "submitted_institutions": 3,
+    "total_records": 5,
+    "submitted": 5,
+    "submitted_institutions": 4,
     "duplicates": 0,
     "skipped": 0
   },
   "status_counts": {
-    "submitted": 3
+    "submitted": 3,
+    "blocked-needs-user": 1,
+    "unlikely-to-progress": 1
   },
   "fit_counts_submitted": {
-    "interior-architecture": 2,
-    "interior-design": 1
+    "interior-architecture": 3,
+    "interior-design": 2
   },
   "applications": [
     {
@@ -33,10 +35,54 @@
       "status_tone": "submitted",
       "lam_risk_label": "低",
       "sponsorship_risk_label": "高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "public_note": "2026-06-09 JobStreet 成功提交；未发现后续面试、补材料或拒信。",
       "compensation_label": "招聘信息未公开/待核实",
       "institution_zh": "第一城市大学学院 / 第一城市集团",
       "job_title_zh": "设计与建成环境学院高级讲师 / 讲师"
+    },
+    {
+      "date": "2026-06-06",
+      "platform": "Email/TOA career page",
+      "job_id": "toa-interior-architecture-senior-lecturer-20260606",
+      "job_title": "Senior Lecturer, Interior Architecture and Design Course",
+      "institution": "The One Academy of Communication Design",
+      "location": "Sunway/Penang campus, Malaysia",
+      "job_url": "https://www.toa.edu.my/connect/career",
+      "fit_category": "interior-architecture",
+      "fit_label": "室内建筑 / 室内建筑设计",
+      "status": "blocked-needs-user",
+      "status_label": "待补材料",
+      "status_marker": "补",
+      "status_order": 3,
+      "status_tone": "blocked",
+      "lam_risk_label": "中",
+      "sponsorship_risk_label": "高",
+      "public_note": "2026-06-08 学校回信要求确认校区并补充设计作品集，待人工回复。",
+      "compensation_label": "招聘信息未公开/待核实",
+      "institution_zh": "The One Academy（一艺学院）",
+      "job_title_zh": "室内建筑与设计课程高级讲师"
+    },
+    {
+      "date": "2026-06-06",
+      "platform": "Email/TOA career page",
+      "job_id": "toa-interior-design-lecturer-20260606",
+      "job_title": "Lecturer, Interior Design Course",
+      "institution": "The One Academy of Communication Design",
+      "location": "Sunway/Penang campus, Malaysia",
+      "job_url": "https://www.toa.edu.my/connect/career",
+      "fit_category": "interior-design",
+      "fit_label": "室内设计",
+      "status": "submitted",
+      "status_label": "已投递",
+      "status_marker": "已",
+      "status_order": 1,
+      "status_tone": "submitted",
+      "lam_risk_label": "中",
+      "sponsorship_risk_label": "高",
+      "public_note": "2026-06-06 已通过邮件提交室内设计讲师申请；未发现独立后续回复。",
+      "compensation_label": "招聘信息未公开/待核实",
+      "institution_zh": "The One Academy（一艺学院）",
+      "job_title_zh": "室内设计课程讲师"
     },
     {
       "date": "2026-06-06",
@@ -55,7 +101,7 @@
       "status_tone": "submitted",
       "lam_risk_label": "中",
       "sponsorship_risk_label": "中",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "public_note": "2026-06-06 已通过邮件向 HR 提交室内设计讲师申请；未发现后续面试或拒信。",
       "compensation_label": "招聘信息未公开/待核实",
       "institution_zh": "马来西亚艺术学院（MIA）",
       "job_title_zh": "室内设计讲师"
@@ -70,14 +116,14 @@
       "job_url": "https://my.jobstreet.com/job/92112713",
       "fit_category": "interior-architecture",
       "fit_label": "室内建筑 / 室内建筑设计",
-      "status": "submitted",
-      "status_label": "已投递",
-      "status_marker": "已",
-      "status_order": 1,
-      "status_tone": "submitted",
+      "status": "unlikely-to-progress",
+      "status_label": "不太可能推进",
+      "status_marker": "止",
+      "status_order": 7,
+      "status_tone": "blocked",
       "lam_risk_label": "中",
       "sponsorship_risk_label": "高",
-      "public_note": "已按马来西亚高校讲师求职材料提交。公开页仅记录岗位进度，内部材料与表单回答不公开。",
+      "public_note": "2026-06-08 雇主已查看；2026-06-10 JobStreet 更新提示不太可能继续推进，详细表单反馈不公开。",
       "compensation_label": "招聘信息未公开/待核实",
       "institution_zh": "英迪梳邦国际学院",
       "job_title_zh": "讲师"
